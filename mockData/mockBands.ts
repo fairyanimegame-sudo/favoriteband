@@ -7,7 +7,7 @@ export const mockBands: Band[] = [
     genre: "Rock, Progressive rock, Progressive pop, Soft rock, Pop",
     formationYear: 1970,
     imageUrl:
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop",
+      "/Bands/Supertramp.jpg",
     members: [
       {
         id: "1",
@@ -34,7 +34,7 @@ export const mockBands: Band[] = [
     genre: "Alternative Metal",
     formationYear: 2010,
     imageUrl:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop",
+      "/Bands/TRD.jpg",
     members: [
       { id: "1", name: "แม็ก-ธิติวัฒน์ รองทอง", role: "Vocals, bass guitar" },
       { id: "2", name: "ก้อง-ก้องอุดม ใจทัศน์กุล", role: "Guitar" },
@@ -48,7 +48,7 @@ export const mockBands: Band[] = [
     genre: "Nu metal, Alternative metal, Hard rock",
     formationYear: 1993,
     imageUrl:
-      "https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=1200&auto=format&fit=crop",
+      "/Bands/Korn.jpg",
     members: [
       { id: "1", name: "Jonathan Davis", role: "Vocals" },
       { id: "2", name: "James Shaffer", role: "Guitar" },

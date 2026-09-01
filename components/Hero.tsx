@@ -4,7 +4,7 @@ export default function Hero() {
       <p className="text-sm tracking-widest text-[#C1272D]">
         three bands, three eras, one collection
       </p>
-      <h1 className="mt-4 font-[family-name:var(--font-display)] text-5xl leading-[0.95] text-[#EDE7DD] sm:text-7xl">
+      <h1 className="mt-4 font-(family-name:--font-display) text-5xl leading-[0.95] text-[#EDE7DD] sm:text-7xl">
         My Favorite Bands
       </h1>
       <p className="mx-auto mt-6 max-w-md text-base text-[#948C86]">
