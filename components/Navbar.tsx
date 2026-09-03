@@ -6,7 +6,7 @@ export default function Navbar() {
           Favorite Band Portal
         </span>
         <span className="hidden text-sm text-[#948C86] sm:block">
-          A personal lineup, three acts
+          A personal lineup, five acts
         </span>
       </div>
     </nav>

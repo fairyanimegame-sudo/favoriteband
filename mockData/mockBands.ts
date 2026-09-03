@@ -56,4 +56,31 @@ export const mockBands: Band[] = [
       { id: "4", name: "Fieldy Morine", role: "Drums" },
     ],
   },
+  {
+    id: "4",
+    name: "Muse",
+    genre: "Alternative rock, Progressive rock, Space rock, Art rock, Hard rock",
+    formationYear: 1994,
+    imageUrl:
+      "/Bands/Muse.jpg",
+    members: [
+      { id: "1", name: "Matt Bellamy", role: "Vocals, guitar, piano" },
+      { id: "2", name: "Chris Wolstenholme", role: "Bass, backing vocals" },
+      { id: "3", name: "Dominic Howard", role: "Drums, percussion" },
+    ],
+  },
+  {
+    id: "5",
+    name: "Lomosonic",
+    genre: "Alternative rock, Hard rock",
+    formationYear: 2005,
+    imageUrl:
+      "/Bands/Lomosonic.jpg",
+    members: [
+      { id: "1", name: "บอย-อริย์ธัช พลตาล", role: "Vocals" },
+      { id: "2", name: "ป้อม-ฉัตรชัย งามสิริมงคลชัย", role: "Guitar" },
+      { id: "3", name: "ปิติ-ปิติ เอสตราลาโด สหพงศ์ เดน โดมินิค", role: "Guitar" },
+      { id: "4", name: "ออตโต้-ชาญเดช จันทร์จำเริญ", role: "Drums" },
+    ],
+  },
 ];
