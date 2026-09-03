@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
-import { Band } from "../types/band";
+import { Band, Member } from "../types/band";
+import MemberModal from "./MemberModal";
 
 interface BandCardProps {
   band: Band;
@@ -7,6 +11,7 @@ interface BandCardProps {
 }
 
 export default function BandCard({ band, reversed = false }: BandCardProps) {
+  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const genres = band.genre.split(",").map((g) => g.trim());
 
   return (
@@ -49,13 +54,26 @@ export default function BandCard({ band, reversed = false }: BandCardProps) {
         <ul className="mt-6 space-y-1.5 text-sm">
           {band.members.map((member) => (
             <li key={member.id} className="text-[#948C86]">
-              <span className="text-[#EDE7DD]">{member.name}</span>
+              <button
+                type="button"
+                onClick={() => setSelectedMember(member)}
+                className="text-[#EDE7DD] underline decoration-[#C1272D]/50 underline-offset-4 hover:text-[#D9A441]"
+              >
+                {member.name}
+              </button>
               {" — "}
               {member.role}
             </li>
           ))}
         </ul>
       </div>
+
+      {selectedMember && (
+        <MemberModal
+          member={selectedMember}
+          onClose={() => setSelectedMember(null)}
+        />
+      )}
     </article>
   );
 }

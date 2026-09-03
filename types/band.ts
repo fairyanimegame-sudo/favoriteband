@@ -2,6 +2,7 @@ export interface Member{
     id: string;
     name: string;
     role: string;
+    imageUrl?: string;
 }
 
 export interface Band{

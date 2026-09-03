@@ -13,19 +13,22 @@ export const mockBands: Band[] = [
         id: "1",
         name: "Roger Hodgson",
         role: "Lead and backing vocals, keyboards, guitars, bass, flageolet, cello",
+        imageUrl: "/Member/Supertram/Roger-Hodson.jpg"
       },
       {
         id: "2",
         name: "Rick Davies",
         role: "Lead and backing vocals, keyboards, harmonica, melodica",
+        imageUrl: "/Member/Supertram/Rick_Davies.png"
       },
       {
         id: "3",
         name: "John Helliwell",
         role: "Saxophones, woodwinds, backing vocals, occasional keyboards, onstage MC",
+        imageUrl: "/Member/Supertram/Richard.jpg"
       },
-      { id: "4", name: "Dougie Thomson", role: "Bass guitar, backing vocals" },
-      { id: "5", name: "Bob Siebenberg", role: "Drums, percussion" },
+      { id: "4", name: "Dougie Thomson", role: "Bass guitar, backing vocals", imageUrl: "/Member/Supertram/Dougie_Thomson.jpg" },
+      { id: "5", name: "Bob Siebenberg", role: "Drums, percussion", imageUrl: "/Member/Supertram/Bob.jpg" },
     ],
   },
   {
