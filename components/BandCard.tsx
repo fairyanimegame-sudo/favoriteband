@@ -8,9 +8,16 @@ import MemberModal from "./MemberModal";
 interface BandCardProps {
   band: Band;
   reversed?: boolean;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
-export default function BandCard({ band, reversed = false }: BandCardProps) {
+export default function BandCard({ band,
+    reversed = false, 
+    isFavorite,
+    onToggleFavorite 
+  }: BandCardProps) {
+
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const genres = band.genre.split(",").map((g) => g.trim());
 
@@ -51,6 +58,15 @@ export default function BandCard({ band, reversed = false }: BandCardProps) {
           ))}
         </div>
 
+        <button
+        type="button"
+        aria-pressed={isFavorite}
+        onClick={() => onToggleFavorite?.(band.id)}
+        className="mt-4 rounded-full border border-[#C1272D] px-4 py-1.5 text-xs text-[#EDE7DD] transition hover:bg-[#C1272D]/20"
+      >
+        {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
+        </button>
+
         <ul className="mt-6 space-y-1.5 text-sm">
           {band.members.map((member) => (
             <li key={member.id} className="text-[#948C86]">
@@ -74,6 +90,7 @@ export default function BandCard({ band, reversed = false }: BandCardProps) {
           onClose={() => setSelectedMember(null)}
         />
       )}
+
     </article>
   );
 }
