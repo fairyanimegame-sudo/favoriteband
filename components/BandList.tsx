@@ -36,9 +36,13 @@ export default function BandList({ bands }: BandListProps) {
 
   // 5. Derived State — คำนวณจากของที่มีอยู่แล้ว ไม่เก็บซ้ำ
   const searchText = keyword.trim().toLowerCase();
-  const visibleBands = bands.filter((band) =>
-    band.name.toLowerCase().includes(searchText)
-  );
+  const visibleBands = bands.filter((band) => {
+    const matchband = band.name.toLowerCase().includes(searchText);
+    const matchMember = band.members.some((member) =>
+      member.name.toLowerCase().includes(searchText)
+    );
+    return matchband || matchMember;
+  });
   const totalLikes = Object.values(likeCounts).reduce((sum, count) => sum + count, 0);
 
   return (
