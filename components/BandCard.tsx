@@ -4,18 +4,23 @@ import { useState } from "react";
 import Image from "next/image";
 import { Band, Member } from "../types/band";
 import MemberModal from "./MemberModal";
+import LikeButton from "./likebuttom";
 
 interface BandCardProps {
   band: Band;
   reversed?: boolean;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
+  likeCount: number;
+  onLike: (id: string) => void;
 }
 
 export default function BandCard({ band,
     reversed = false, 
     isFavorite,
-    onToggleFavorite 
+    onToggleFavorite,
+    likeCount,
+    onLike,
   }: BandCardProps) {
 
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
@@ -62,10 +67,18 @@ export default function BandCard({ band,
         type="button"
         aria-pressed={isFavorite}
         onClick={() => onToggleFavorite?.(band.id)}
-        className="mt-4 rounded-full border border-[#C1272D] px-4 py-1.5 text-xs text-[#EDE7DD] transition hover:bg-[#C1272D]/20"
-      >
+        className={isFavorite 
+              ? "mt-4 rounded-full border border-[#C1272D] bg-[#C1272D] px-4 py-1.5 text-xs text-[#EDE7DD] transition hover:bg-[#C1272D]/80"
+              : "mt-4 rounded-full border border-[#C1272D] px-4 py-1.5 text-xs text-[#EDE7DD] transition hover:bg-[#C1272D]/20"
+          }   
+        >
         {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
         </button>
+
+        <div className="mt-4">
+          <LikeButton count={likeCount}
+                      onClick={() => onLike(band.id)}/>
+        </div>
 
         <ul className="mt-6 space-y-1.5 text-sm">
           {band.members.map((member) => (

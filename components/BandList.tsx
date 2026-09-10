@@ -12,6 +12,7 @@ export default function BandList({ bands }: BandListProps) {
   // 3. State ทั้งหมดของหน้านี้ ประกาศต่อเนื่องกัน
   const [keyword, setKeyword] = useState("");
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [likeCounts, setLikeCounts] = useState<Record<string, number>>({});
 
   // 4. Event Handler ทั้งหมด
   function handleKeywordChange(event: ChangeEvent<HTMLInputElement>) {
@@ -26,11 +27,19 @@ export default function BandList({ bands }: BandListProps) {
     );
   }
 
+  function handleLike(id: string) {
+    setLikeCounts((prevCounts) => ({
+      ...prevCounts,
+      [id]: (prevCounts[id] || 0) + 1,
+    }));
+  }
+
   // 5. Derived State — คำนวณจากของที่มีอยู่แล้ว ไม่เก็บซ้ำ
   const searchText = keyword.trim().toLowerCase();
   const visibleBands = bands.filter((band) =>
     band.name.toLowerCase().includes(searchText)
   );
+  const totalLikes = Object.values(likeCounts).reduce((sum, count) => sum + count, 0);
 
   return (
     <section className="mx-auto max-w-3xl px-6 pb-24">
@@ -65,6 +74,8 @@ export default function BandList({ bands }: BandListProps) {
               reversed={index % 2 === 1}
               isFavorite={favoriteIds.includes(band.id)}
               onToggleFavorite={handleToggleFavorite}
+              likeCount={likeCounts[band.id] ?? 0}
+              onLike={handleLike}
             />
           ))}
         </div>
